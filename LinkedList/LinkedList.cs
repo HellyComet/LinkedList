@@ -187,8 +187,7 @@
 
         public void InsertBeforeANode(int x, int data)
         {
-            Node p;
-            p = start;
+            Node temp;
 
             if (start == null)
             {
@@ -197,10 +196,14 @@
             }
 
             /*x is present in the first position*/
-
-
-
-
+            if(x == start.info)
+            {
+                temp = new Node(data);
+                temp.link = start;
+                start = temp;
+                return;
+            }
+            Node p = start;
             //Find the predecessor and insert the node
             while (p.link != null) //p.link! = null to insert a node before a given node
             {
@@ -214,7 +217,7 @@
             else
             {
 
-                Node temp = new Node(data);
+                temp = new Node(data);
                 temp.link = p.link;
                 p.link = temp;
             }
@@ -223,20 +226,34 @@
 
         //Insertion of new node at the kth postion in the list
 
-        public void InsertAtParticularPosition(int position, int data)
+        public void InsertAtParticularPosition(int data, int position)
         {
-            Node p;
-            p = start;
+            Node temp;
+            int i;
 
-            Node temp = new Node(data);
+            if (position == 1) // To insert at first position
+            {
+                temp = new Node(data);
+                temp.link = start;
+                start = temp;
+                return;
+            }
 
-            for(int i = 0 ; i< position -1 && p!=null ;i++)
+            Node p = start;
+            for ( i = 1 ; i< position -1 && p!=null ;i++) //Find reference to k-1 node
             {
                 p= p.link;
             }
 
-            temp.link= p.link;
-            p.link= temp;
+            if (p == null)
+                Console.WriteLine("You can insert only upto " + i + "th position");
+            else
+            {
+                temp = new Node(data);
+                temp.link = p.link;
+                p.link = temp;
+            }
+
         }
 
         public void CreateList()

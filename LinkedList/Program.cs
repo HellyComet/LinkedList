@@ -53,6 +53,30 @@ namespace LinkedList.LinkedList
                         data=Convert.ToInt32(Console.ReadLine());
                         list.InsertAtEnd(data);
                         break;
+                    case 6:
+                        Console.Write("Enter the element to be inserted : ");
+                        data = Convert.ToInt32(Console.ReadLine());
+                        Console.Write("Enter the element after which to insert : ");
+                        x = Convert.ToInt32(Console.ReadLine());
+                        list.InsertAfterANode(data, x);
+                        break;
+                    case 7:
+                        Console.Write("Enter the element to be inserted : ");
+                        data = Convert.ToInt32(Console.ReadLine());
+                        Console.Write("Enter the element before which to insert : ");
+                        x = Convert.ToInt32(Console.ReadLine());
+                        list.InsertBeforeANode(data, x);
+                        break;
+                    case 8:
+                        Console.Write("Enter the element to be inserted : ");
+                        data = Convert.ToInt32(Console.ReadLine());
+                        Console.Write("Enter the position at which to insert");
+                        x = Convert.ToInt32(Console.ReadLine());
+                        list.InsertAtParticularPosition(data, x);
+                        break;
+                    default:
+                        Console.WriteLine("Wrong choice entered");
+                        break;
 
                 }
             }
