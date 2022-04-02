@@ -22,6 +22,10 @@ namespace LinkedList.LinkedList
                 Console.WriteLine("6.Insert a node after a specified node");
                 Console.WriteLine("7.Insert a node before a specified node");
                 Console.WriteLine("8.Insert a node at a given position");
+                Console.WriteLine("9.Delete First Node");
+                Console.WriteLine("10.Delete Last Node");
+                Console.WriteLine("11.Delete a particular Node");
+                Console.WriteLine("12.Reverse a list");
                 Console.WriteLine("19.Quit");
 
                 Console.Write("Enter your choice : ");
@@ -73,6 +77,23 @@ namespace LinkedList.LinkedList
                         Console.Write("Enter the position at which to insert");
                         x = Convert.ToInt32(Console.ReadLine());
                         list.InsertAtParticularPosition(data, x);
+                        break;
+                    case 9:
+                        Console.Write("Delete First Node");
+                        list.DeleteFirstNode();
+                        break;
+                    case 10:
+                        Console.Write("Delete Last Node");
+                        list.DeleteLastNode();
+                        break;
+                    case 11:
+                        Console.Write("Enter node to be deleted");
+                        data = Convert.ToInt32(Console.ReadLine());
+                        list.DeleteNode(data);
+                        break;
+                    case 12:
+                        Console.Write("Reverse the list");
+                        list.ReverseList();
                         break;
                     default:
                         Console.WriteLine("Wrong choice entered");

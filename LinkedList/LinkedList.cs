@@ -272,5 +272,83 @@
                 InsertAtEnd(data);
             }
         }
+
+        public void DeleteFirstNode() //Delete First Node
+        {
+            if (start == null)
+                return;
+            else
+                start = start.link;
+        }
+        public void DeleteLastNode()
+        {
+            if (start == null) //If list is empty
+                return;
+
+            if(start.link == null) //Only node in the list
+            {
+                start = null;
+                return;
+            }
+
+            Node p = start;
+            //1 Find last node
+            //2 p.link.link -> second last node.
+            //3 delete it and assign p.link = null
+            while(p.link.link != null)
+                p = p.link;
+            p.link = null;
+           
+        }
+
+        public void DeleteNode(int x)
+        {
+            /*List is empty*/
+            if (start == null)
+            {
+                Console.WriteLine("List is empty");
+                return;
+            }
+
+            /*Deletion of first node*/
+            if (start.info == x)
+            {
+                start = start.link;
+                return;
+            }
+
+            /*Deletion in between or at the end of the list*/
+            Node p = start;
+            while(p.link !=null)
+            {
+                if (p.link.info == x)
+                    break;
+                p = p.link;
+            }
+
+            if (p.link == null)
+                Console.WriteLine("Element" + x + "not found in the list");
+            else
+                p.link = p.link.link;
+        }
+
+        public void ReverseList()
+        {
+            Node prev, p, next;
+
+            prev = null; 
+            p = start;
+
+            while(p != null)
+            {
+                next = p.link;
+                p.link = prev;
+                prev = p;
+                p = next;
+            }
+
+            start = prev;
+
+        }
     }
 }
