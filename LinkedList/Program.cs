@@ -26,6 +26,8 @@ namespace LinkedList.LinkedList
                 Console.WriteLine("10.Delete Last Node");
                 Console.WriteLine("11.Delete a particular Node");
                 Console.WriteLine("12.Reverse a list");
+                Console.WriteLine("13.Bubble Sort Exchanging Data");
+                Console.WriteLine("14.Bubble Sort Exchanging Links");
                 Console.WriteLine("19.Quit");
 
                 Console.Write("Enter your choice : ");
@@ -94,6 +96,14 @@ namespace LinkedList.LinkedList
                     case 12:
                         Console.Write("Reverse the list");
                         list.ReverseList();
+                        break;
+                    case 13:
+                        Console.Write("Bubble Sort With Exchanging Data");
+                        list.BubbleSortLinkedListExchangeData();
+                        break;
+                    case 14:
+                        Console.Write("Bubble Sort With Exchanging Links");
+                        list.BubbleSortExchangeLink();
                         break;
                     default:
                         Console.WriteLine("Wrong choice entered");

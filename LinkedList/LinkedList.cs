@@ -350,5 +350,53 @@
             start = prev;
 
         }
+
+        public void BubbleSortLinkedListExchangeData()
+        {
+            Node p, q, end;
+
+            for(end = null; end != start.link; end = p ) // Pass of Bubble Sort , loop stops when end refers to second node
+            {
+                for( p = start; p.link !=end ; p = p.link) // Every pass of bubble sort
+                {
+                    q = p.link;
+                    if(p.info > q.info)
+                    {
+                        int temp = p.info;
+                        p.info = q.info;
+                        q.info = temp;
+                    }
+                }
+            }
+        }
+
+        public void BubbleSortExchangeLink()
+        {
+            Node end, p, q, r, temp;
+
+            for(end =null; end != start.link; end = p ) // Pass of Bubble Sort , loop stops when end refers to second node
+            {
+                for (r = p = start; p.link != end; r = p, p= p.link) // Every pass of bubble sort
+                {
+                    q =p.link;
+
+                    if(p.info > q.info)
+                    {
+                        p.link = q.link;
+                        q.link = p;
+
+                        if (p != start)
+                            r.link = q;
+                        else
+                            start = q;
+
+                        temp = p;
+                        p = q;
+                        q = temp;
+                    }
+
+                }
+            }
+        }
     }
 }
